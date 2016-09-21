@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldenPalm.BL", "GoldenPalm.BL\GoldenPalm.BL.csproj", "{0EA44D7E-2D2F-42E5-8AFE-AAD79B6D2CE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldenPalm.DAL", "GoldenPalm.DAL\GoldenPalm.DAL.csproj", "{5C71791A-FBBF-497B-B2DA-3A247E8F4DA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularApp", "AngularApp\AngularApp.csproj", "{C8FDC641-E790-4F8B-9E55-E1F8F3D6E51A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0EA44D7E-2D2F-42E5-8AFE-AAD79B6D2CE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EA44D7E-2D2F-42E5-8AFE-AAD79B6D2CE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EA44D7E-2D2F-42E5-8AFE-AAD79B6D2CE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EA44D7E-2D2F-42E5-8AFE-AAD79B6D2CE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C71791A-FBBF-497B-B2DA-3A247E8F4DA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C71791A-FBBF-497B-B2DA-3A247E8F4DA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C71791A-FBBF-497B-B2DA-3A247E8F4DA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C71791A-FBBF-497B-B2DA-3A247E8F4DA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8FDC641-E790-4F8B-9E55-E1F8F3D6E51A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8FDC641-E790-4F8B-9E55-E1F8F3D6E51A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8FDC641-E790-4F8B-9E55-E1F8F3D6E51A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8FDC641-E790-4F8B-9E55-E1F8F3D6E51A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

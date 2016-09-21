@@ -1,0 +1,15 @@
+C:\My Projects\AP8_APPS\GoldenPalm\Dev\GoldenPalm.DAL\bin\Debug\EntLib.dll
+C:\My Projects\AP8_APPS\GoldenPalm\Dev\GoldenPalm.DAL\bin\Debug\EntLib.pdb
+C:\My Projects\AP8_APPS\GoldenPalm\Dev\GoldenPalm.DAL\bin\Debug\MVC Foolproof Validation.dll
+C:\My Projects\AP8_APPS\GoldenPalm\Dev\GoldenPalm.DAL\bin\Debug\Microsoft.Exchange.WebServices.Auth.xml
+C:\My Projects\AP8_APPS\GoldenPalm\Dev\GoldenPalm.DAL\obj\Debug\EntLib.dll
+C:\My Projects\AP8_APPS\GoldenPalm\Dev\GoldenPalm.DAL\obj\Debug\EntLib.pdb
+C:\My Projects\AP8_APPS\GoldenPalm\Dev\GoldenPalm.DAL\bin\Debug\GridMvc.dll
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\GoldenPalm.DAL\bin\Debug\EntLib.dll
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\GoldenPalm.DAL\bin\Debug\EntLib.pdb
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\GoldenPalm.DAL\bin\Debug\GridMvc.dll
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\GoldenPalm.DAL\bin\Debug\MVC Foolproof Validation.dll
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\GoldenPalm.DAL\bin\Debug\Microsoft.Exchange.WebServices.Auth.xml
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\GoldenPalm.DAL\obj\Debug\GoldenPalm.DAL.csprojResolveAssemblyReference.cache
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\GoldenPalm.DAL\obj\Debug\EntLib.dll
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\GoldenPalm.DAL\obj\Debug\EntLib.pdb

@@ -1,0 +1,20 @@
+C:\My Projects\AP8_APPS\GoldenPalm\Dev\GoldenPalm.BL\bin\Debug\GoldenPalm.BL.dll.config
+C:\My Projects\AP8_APPS\GoldenPalm\Dev\GoldenPalm.BL\bin\Debug\GoldenPalm.BL.dll
+C:\My Projects\AP8_APPS\GoldenPalm\Dev\GoldenPalm.BL\bin\Debug\GoldenPalm.BL.pdb
+C:\My Projects\AP8_APPS\GoldenPalm\Dev\GoldenPalm.BL\bin\Debug\EntLib.dll
+C:\My Projects\AP8_APPS\GoldenPalm\Dev\GoldenPalm.BL\bin\Debug\Newtonsoft.Json.dll
+C:\My Projects\AP8_APPS\GoldenPalm\Dev\GoldenPalm.BL\bin\Debug\EntLib.pdb
+C:\My Projects\AP8_APPS\GoldenPalm\Dev\GoldenPalm.BL\obj\Debug\GoldenPalm.BL.csprojResolveAssemblyReference.cache
+C:\My Projects\AP8_APPS\GoldenPalm\Dev\GoldenPalm.BL\obj\Debug\GoldenPalm.BL.dll
+C:\My Projects\AP8_APPS\GoldenPalm\Dev\GoldenPalm.BL\obj\Debug\GoldenPalm.BL.pdb
+C:\My Projects\AP8_APPS\GoldenPalm\Dev\GoldenPalm.BL\bin\Debug\GridMvc.dll
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\GoldenPalm.BL\bin\Debug\GoldenPalm.BL.dll.config
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\GoldenPalm.BL\bin\Debug\GoldenPalm.BL.dll
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\GoldenPalm.BL\bin\Debug\GoldenPalm.BL.pdb
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\GoldenPalm.BL\bin\Debug\EntLib.dll
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\GoldenPalm.BL\bin\Debug\GridMvc.dll
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\GoldenPalm.BL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\GoldenPalm.BL\bin\Debug\EntLib.pdb
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\GoldenPalm.BL\obj\Debug\GoldenPalm.BL.csprojResolveAssemblyReference.cache
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\GoldenPalm.BL\obj\Debug\GoldenPalm.BL.dll
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\GoldenPalm.BL\obj\Debug\GoldenPalm.BL.pdb

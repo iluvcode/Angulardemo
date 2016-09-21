@@ -1,0 +1,36 @@
+C:\My Projects\AP8_APPS\AngularApp\AngularApp\bin\AngularApp.dll.config
+C:\My Projects\AP8_APPS\AngularApp\AngularApp\bin\AngularApp.dll
+C:\My Projects\AP8_APPS\AngularApp\AngularApp\bin\AngularApp.pdb
+C:\My Projects\AP8_APPS\AngularApp\AngularApp\bin\EntLib.dll
+C:\My Projects\AP8_APPS\AngularApp\AngularApp\bin\GoldenPalm.BL.dll
+C:\My Projects\AP8_APPS\AngularApp\AngularApp\bin\Newtonsoft.Json.dll
+C:\My Projects\AP8_APPS\AngularApp\AngularApp\bin\System.Net.Http.Formatting.dll
+C:\My Projects\AP8_APPS\AngularApp\AngularApp\bin\System.Web.Http.dll
+C:\My Projects\AP8_APPS\AngularApp\AngularApp\bin\System.Web.Http.WebHost.dll
+C:\My Projects\AP8_APPS\AngularApp\AngularApp\bin\GoldenPalm.BL.pdb
+C:\My Projects\AP8_APPS\AngularApp\AngularApp\bin\EntLib.pdb
+C:\My Projects\AP8_APPS\AngularApp\AngularApp\bin\Newtonsoft.Json.xml
+C:\My Projects\AP8_APPS\AngularApp\AngularApp\bin\System.Net.Http.Formatting.xml
+C:\My Projects\AP8_APPS\AngularApp\AngularApp\bin\System.Web.Http.xml
+C:\My Projects\AP8_APPS\AngularApp\AngularApp\bin\System.Web.Http.WebHost.xml
+C:\My Projects\AP8_APPS\AngularApp\AngularApp\obj\Debug\AngularApp.csprojResolveAssemblyReference.cache
+C:\My Projects\AP8_APPS\AngularApp\AngularApp\obj\Debug\AngularApp.dll
+C:\My Projects\AP8_APPS\AngularApp\AngularApp\obj\Debug\AngularApp.pdb
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\AngularApp\bin\AngularApp.dll
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\AngularApp\bin\AngularApp.pdb
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\AngularApp\bin\EntLib.dll
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\AngularApp\bin\GoldenPalm.BL.dll
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\AngularApp\bin\Newtonsoft.Json.dll
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\AngularApp\bin\System.Net.Http.Formatting.dll
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\AngularApp\bin\System.Web.Http.dll
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\AngularApp\bin\System.Web.Http.WebHost.dll
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\AngularApp\bin\GoldenPalm.BL.pdb
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\AngularApp\bin\EntLib.pdb
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\AngularApp\bin\Newtonsoft.Json.xml
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\AngularApp\bin\System.Net.Http.Formatting.xml
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\AngularApp\bin\System.Web.Http.xml
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\AngularApp\bin\System.Web.Http.WebHost.xml
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\AngularApp\obj\Debug\AngularApp.csprojResolveAssemblyReference.cache
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\AngularApp\obj\Debug\AngularApp.dll
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\AngularApp\obj\Debug\AngularApp.pdb
+C:\Users\sandeepp\Documents\Visual Studio 2013\Projects\AngularApp\AngularApp\bin\AngularApp.dll.config
