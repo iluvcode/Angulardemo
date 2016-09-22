@@ -37,7 +37,7 @@
         <div ng-controller="AngularController">
             <div>
                 <div id="productImage">
-                    <img height="500" width="500" src ='/images/Tshirt-front.jpg'>
+                    <img class ="mainproductImage" src ='/images/Tshirt-front.jpg'>
                      <div items-drag id="uploadImage" style="display: none; position: absolute; top: 150px; left: 150px">
                          <img src="" resizable on-resize="resize($evt, $ui)" width="150" height="150" id="image"  />
 	                                     <div ng-show="w">{{w}}:{{h}}px</div>
@@ -50,7 +50,13 @@
                 <div id="gallery"></div>
             </div>
             <div>
-                
+                <select>
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                    <option value="xlarge">Xtra Large</option>
+                </select>
+                <br/>
                 <div class="upload-button">Upload Image</div>
                 <input class="file-upload" type="file" accept="image/*" style="display: none"/>
                 <br/>
@@ -79,7 +85,8 @@
 
         $('.item').click(function () {
            var imgsrc = $(this).children('img').attr('src');
-            $("#productImage").html("<img height='500' width='500' src = '" + imgsrc + "'>");
+            //$("#productImage").html("<img height='500' width='500' src = '" + imgsrc + "'>");
+            $(".mainproductImage").attr("src", imgsrc);
 
         });
        
@@ -223,6 +230,11 @@
         left: 50%;
         margin-left: -50px; /* margin is -0.5 * dimension */
         margin-top: -25px;
+    }
+
+    .mainproductImage {
+        height: 500px;
+        width: 500px;
     }
 
     ​ .draggable {
