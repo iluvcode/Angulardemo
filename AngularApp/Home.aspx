@@ -1,11 +1,16 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="AngularApp.Home" %>
 
 <!DOCTYPE html>
-<script src="Scripts/jquery-1.12.4.js"></script>
+<%--<script src="Scripts/jquery-1.12.4.js"></script>
 <script src="Scripts/angular.js"></script>
 <script src="Scripts/jquery-ui-1.12.0.js"></script>
 <link href="Scripts/jquery-ui.min.css" rel="stylesheet" />
-
+ <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">--%>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
 
 <div ng-app="MyApp2">
 
@@ -27,7 +32,7 @@
         </select>
         
          <div ng-repeat="item in Texts" items-drag>
-                <div resizable on-resize="resizeFunction()">{{item}} </div>
+                <div resizable on-resize="resize($evt, $ui)">{{item}} </div>
              <%--<asp:Label ID="Label1" runat="server" Text="" ng-bind="item"></asp:Label>--%>
               
         </div>
@@ -39,10 +44,15 @@
          </div>
         <div class="upload-button">Upload Image</div>
         <input class="file-upload" type="file" accept="image/*"/>
+        
+        <div items-drag>
+        <img src="http://dummyimage.com/600x400/fff/000" resizable on-resize="resize($evt, $ui)" width="200" height="200"  />
+	        <div ng-show="w">{{w}}:{{h}}px</div>
+        </div>
     </div>
 </div>
 
-
+<!--http://stackoverflow.com/questions/35593077/how-to-resize-the-image-by-dragging/35644289-->
 <script>
     var MyApp = angular.module("MyApp2", []);
     var degrees = 90;
@@ -55,9 +65,15 @@
         //    $scope.Vendors = data;
         //    $scope.DisplayVendors = data;
         //});
-        $scope.resizeFunction = function() {
-            //Add code here to save the size of the div
-        };
+        //$scope.resizeFunction = function() {
+        //    //Add code here to save the size of the div
+        //};
+
+        $scope.resize = function (evt, ui) {
+            //console.log (evt,ui);
+            $scope.w = ui.size.width;
+            $scope.h = ui.size.height;
+        }
     
         $scope.addText = function () {
             $scope.Texts.push($scope.Name);
@@ -106,6 +122,21 @@
         };
     });
 
+    //MyApp.directive('resizable', function () {
+    //    return {
+    //        restrict: 'A',
+    //        scope: {
+    //            callback: '&onResize'
+    //        },
+    //        link: function postLink(scope, elem, attrs) {
+    //            elem.resizable();
+    //            elem.on('resizestop', function (evt, ui) {
+    //                if (scope.callback) { scope.callback(); }
+    //            });
+    //        }
+    //    };
+    //});
+
     MyApp.directive('resizable', function () {
         return {
             restrict: 'A',
@@ -113,15 +144,19 @@
                 callback: '&onResize'
             },
             link: function postLink(scope, elem, attrs) {
-                elem.resizable();
-                elem.on('resizestop', function (evt, ui) {
-                    if (scope.callback) { scope.callback(); }
+                elem.resizable({ handles: "all" });
+                elem.on('resize', function (evt, ui) {
+                    scope.$apply(function() {
+                        if (scope.callback) {
+                            scope.callback({ $evt: evt, $ui: ui });
+                        }
+                    });
                 });
             }
         };
     });
    
-    $('#iamge-reizediv').resizable();
+    //$('#iamge-reizediv').resizable();
 </script>
 
 <script type="text/javascript">
