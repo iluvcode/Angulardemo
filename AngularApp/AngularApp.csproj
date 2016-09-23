@@ -123,7 +123,9 @@
     <Content Include="images\Tshirt-back.jpg" />
     <Content Include="images\Tshirt-front.jpg" />
     <Content Include="ItemPage.aspx" />
+    <Content Include="ItemPageInMaster.aspx" />
     <Content Include="packages.config" />
+    <Content Include="Master.Master" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\Gallery\owl.carousel.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
@@ -157,6 +159,13 @@
     <Compile Include="ItemPage.aspx.designer.cs">
       <DependentUpon>ItemPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ItemPageInMaster.aspx.cs">
+      <DependentUpon>ItemPageInMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItemPageInMaster.aspx.designer.cs">
+      <DependentUpon>ItemPageInMaster.aspx</DependentUpon>
+    </Compile>
     <Compile Include="JsControllers\AllowCrossSiteJsonAttribute.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
@@ -164,6 +173,13 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master.Master.cs">
+      <DependentUpon>Master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master.Master.designer.cs">
+      <DependentUpon>Master.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

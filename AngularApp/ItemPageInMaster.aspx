@@ -1,10 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ItemPage.aspx.cs" Inherits="AngularApp.ItemPage" %>
-
-<!DOCTYPE html>
-
-
-<head runat="server">
-    <title>Personalize your product</title>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ItemPageInMaster.aspx.cs" Inherits="AngularApp.ItemPageInMaster" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+      <title>Personalize your product</title>
    <%-- <script src="Scripts/jquery-1.12.4.js"></script>--%>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
@@ -30,9 +26,8 @@
          }
       
      </style>
-</head>
-<body>
-    
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div ng-app ="MyApp2">
         <div ng-controller="AngularController">
             <div>
@@ -87,11 +82,10 @@
         </div>
     </div>
     
-</body>
 <script type="text/javascript">
     var galleryImages = ["/images/Tshirt-front.jpg", "/images/Tshirt-back.jpg"];
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         for (var i = 0; i < galleryImages.length; i++) {
             var img = "<div class='item'><img src = '" + galleryImages[i] + "' ></div>";
             $("#gallery").append(img);
@@ -104,12 +98,12 @@
         });
 
         $('.item').click(function () {
-           var imgsrc = $(this).children('img').attr('src');
+            var imgsrc = $(this).children('img').attr('src');
             //$("#productImage").html("<img height='500' width='500' src = '" + imgsrc + "'>");
             $(".mainproductImage").attr("src", imgsrc);
 
         });
-       
+
         //start image upload
         var readURL = function (input) {
             if (input.files && input.files[0]) {
@@ -165,7 +159,7 @@
             $scope.Texts.push($scope.Name);
         }
 
-        $scope.remove = function(item) {
+        $scope.remove = function (item) {
             var index = $scope.Texts.indexOf(item);
             $scope.Texts.splice(index, 1);
         }
@@ -299,5 +293,4 @@
         display: none;
     }
  </style>  
-
-
+</asp:Content>
