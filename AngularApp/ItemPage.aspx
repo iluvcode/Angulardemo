@@ -40,7 +40,7 @@
                     <img class ="mainproductImage" src ='/images/Tshirt-front.jpg'>
                      <div items-drag id="uploadImage" style="display: none; position: absolute; top: 150px; left: 150px">
                          <img src="" resizable on-resize="resize($evt, $ui)" width="150" height="150" id="image"  />
-	                                     <div ng-show="w">{{w}}:{{h}}px</div>
+	                                    <%-- <div ng-show="w">{{w}}:{{h}}px</div>--%>
                      </div>
                     <div ng-repeat="item in Texts" items-drag style="position: absolute; top: 250px; left: 150px">
                       <div resizable on-resize="resize($evt, $ui)" style="width: auto; height: auto">{{item}} </div>
@@ -72,6 +72,10 @@
                 <button ng-click="addText()">Add Personalization Text</button>
                 <br/>
                 <br/>
+                <div id="imagePreviewDiv" style="display: none">
+                    <img src="" id="addedImagePreview" style="height: 50px;width: 50px"/>
+                    <button type="button" onclick="RemoveImage()">Delete</button>
+                </div>
                 <div ng-if="Texts.length > 0" >
                     Personalizations added on the Product
                     <div ng-repeat="item in Texts">
@@ -112,7 +116,9 @@
                 var reader = new FileReader();
                 reader.onload = function (e) {
                     $('#image').attr('src', e.target.result);
+                    $('#addedImagePreview').attr('src', e.target.result);
                     $('#uploadImage').css("display", "block");
+                    $('#imagePreviewDiv').css('display', "block");
                 }
                 reader.readAsDataURL(input.files[0]);
             }
@@ -128,6 +134,12 @@
         });
         //End image upload
     });
+
+
+    function RemoveImage() {
+        $('#uploadImage').css("display", "none");
+        $('#imagePreviewDiv').css('display', "none");
+    }
 
     var MyApp = angular.module("MyApp2", []);
     MyApp.controller('AngularController', function ($scope, $http) {
