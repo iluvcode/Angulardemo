@@ -11,13 +11,13 @@
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
-
+<form runat="server">
 <div ng-app="MyApp2">
 
     <div ng-controller="AngularController">
         Details:
    <textarea ng-model="Name"> </textarea>
-   <button ng-click="addText()">Add</button>
+   <button type="button" runat="server" ng-click="addText()">Add</button>
         <br />
         <br />
         Color:
@@ -51,7 +51,7 @@
         </div>
     </div>
 </div>
-
+</form>
 <!--http://stackoverflow.com/questions/35593077/how-to-resize-the-image-by-dragging/35644289-->
 <script>
     var MyApp = angular.module("MyApp2", []);

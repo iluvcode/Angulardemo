@@ -43,18 +43,25 @@
 	                                     <div ng-show="w">{{w}}:{{h}}px</div>
                      </div>
                     <div ng-repeat="item in Texts" items-drag style="position: absolute; top: 250px; left: 150px">
-                      <div resizable on-resize="resize($evt, $ui)" style="width: 100px; height: 50px">{{item}} </div>
+                      <div resizable on-resize="resize($evt, $ui)" style="width: auto; height: auto">{{item}} </div>
                 </div>
                 </div>
                 <br/>
                 <div id="gallery"></div>
             </div>
             <div>
-                <select>
+           Pick your size:     <select>
                     <option value="small">Small</option>
                     <option value="medium">Medium</option>
                     <option value="large">Large</option>
                     <option value="xlarge">Xtra Large</option>
+                </select>
+                <br/>
+           Quantity:   
+                  <select>
+                       <option value="1">1</option>
+                       <option value="2">2</option>
+                       <option value="3">3</option>
                 </select>
                 <br/>
                 <div class="upload-button">Upload Image</div>
@@ -63,6 +70,15 @@
                 <br/>
                 <textarea ng-model="Name"></textarea>
                 <button ng-click="addText()">Add Personalization Text</button>
+                <br/>
+                <br/>
+                <div ng-if="Texts.length > 0" >
+                    Personalizations added on the Product
+                    <div ng-repeat="item in Texts">
+                        <div>{{item}}</div>
+                        <button type="button" ng-click="remove(item)" >Delete</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -135,6 +151,11 @@
 
         $scope.addText = function () {
             $scope.Texts.push($scope.Name);
+        }
+
+        $scope.remove = function(item) {
+            var index = $scope.Texts.indexOf(item);
+            $scope.Texts.splice(index, 1);
         }
         $scope.data = {
             DisplayVendors: null,
