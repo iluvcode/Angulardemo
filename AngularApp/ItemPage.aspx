@@ -43,7 +43,7 @@
                         <%-- <div ng-show="w">{{w}}:{{h}}px</div>--%>
                     </div>
                     <div ng-repeat="item in Texts" items-drag style="position: absolute; top: 250px; left: 150px">
-                        <div resizable on-resize="resize($evt, $ui)" style="width: auto; height: auto"><font face="{{selectedFont}}">{{item}}</font></div>
+                        <div resizable on-resize="resize($evt, $ui)" style="width: auto; height: auto"><font face="{{selectedFont}}">{{item.name}}</font></div>
                     </div>
                 </div>
                 <br />
@@ -86,7 +86,12 @@
                 <div ng-if="Texts.length > 0">
                     Personalizations added on the Product
                     <div ng-repeat="item in Texts">
-                        <div><font face="{{selectedFont}}">{{item}}</font></div>
+                        <div>
+                            <font face="{{selectedFont}}"><span id="{{item.id}}span">{{item.name}}</span></font>
+                            <input type="text" id="{{item.id}}textarea" style="display: none"></input>
+                        </div>
+                        <button type="button" ng-click="edit(item)">Edit</button>
+                        <button type="button" id="{{item.id}}save" style="display: none" ng-click="addChangedText(item)">Save</button>
                         <button type="button" ng-click="remove(item)">Delete</button>
                     </div>
                 </div>
@@ -163,38 +168,38 @@
         //};
 
         $scope.fonts = [
-             {
+               {
                  value: '-1',
                  label: '--Select font--'
-             },
-           {
-               value: 'Arial',
-               label: 'Arial'
-           },
-           {
-               value: 'Tahoma',
-               label: 'Tahoma'
-           },
-            {
-                value: 'Verdana',
-                label: 'Verdana'
-            },
-            {
-                value: 'Webdings',
-                label: 'Webdings'
-            },
-            {
-                value: 'Georgia',
-                label: 'Georgia'
-            },
-            {
-                value: 'Impact',
-                label: 'Impact'
-            },
-            {
-                value: 'Marlett',
-                label: 'Marlett'
-            }
+               },
+               {
+                   value: 'Arial',
+                   label: 'Arial'
+               },
+               {
+                   value: 'Tahoma',
+                   label: 'Tahoma'
+               },
+                {
+                    value: 'Verdana',
+                    label: 'Verdana'
+                },
+                {
+                    value: 'Webdings',
+                    label: 'Webdings'
+                },
+                {
+                    value: 'Georgia',
+                    label: 'Georgia'
+                },
+                {
+                    value: 'Impact',
+                    label: 'Impact'
+                },
+                {
+                    value: 'Marlett',
+                    label: 'Marlett'
+                }
         ];
         $scope.selectedFont = '';
         $scope.change = function (option) {
@@ -209,13 +214,46 @@
         }
 
         $scope.addText = function () {
-            $scope.Texts.push($scope.Name);
+            var counter = $scope.Texts.length + 1;
+            $scope.Texts.push({id : counter, name : $scope.Name });
+            //$scope.Texts.push($scope.id,$scope.Name);
         }
 
         $scope.remove = function (item) {
             var index = $scope.Texts.indexOf(item);
             $scope.Texts.splice(index, 1);
         }
+
+        $scope.edit = function(item) {
+            var inputId = "#" + item.id + "textarea";
+            $(inputId).css("display", "block");
+            $(inputId).val(item.name);
+
+            var spanId = "#" + item.id + "span";
+            $(spanId).hide();
+
+            var savebuttonId = "#" + item.id + "save";
+            $(savebuttonId).css("display", "block");
+
+        }
+
+        $scope.addChangedText = function (item) {
+            var index = $scope.Texts.indexOf(item);
+
+            var inputId = "#" + item.id + "textarea";
+            var changedText = $(inputId).val();
+            item.name = changedText;
+            $scope.Texts[index] = item;
+
+            $(inputId).css("display", "none");
+            var spanId = "#" + item.id + "span";
+            $(spanId).show();
+
+            var savebuttonId = "#" + item.id + "save";
+            $(savebuttonId).css("display", "none");
+
+        }
+
         $scope.data = {
             DisplayVendors: null,
             Vendors: [
