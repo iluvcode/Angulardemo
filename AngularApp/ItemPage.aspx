@@ -5,93 +5,100 @@
 
 <head runat="server">
     <title>Personalize your product</title>
-   <%-- <script src="Scripts/jquery-1.12.4.js"></script>--%>
+    <%-- <script src="Scripts/jquery-1.12.4.js"></script>--%>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
     <script src="Scripts/Gallery/owl.carousel.js"></script>
     <link href="CCS/Gallery/owl.carousel.css" rel="stylesheet" />
     <link href="CCS/Gallery/owl.theme.css" rel="stylesheet" />
     <link href="CCS/Gallery/owl.transitions.css" rel="stylesheet" />
-     <style type="text/css">
-         #gallery {
-             width: 500px;
-         }
-         #gallery .item{
-             margin: 3px;
-         }
-         #gallery .item img{
-             display: block;
-             width: 100px;
-             height: 100px;
-          
-         }
-      
-     </style>
+    <style type="text/css">
+        #gallery {
+            width: 500px;
+        }
+
+            #gallery .item {
+                margin: 3px;
+            }
+
+                #gallery .item img {
+                    display: block;
+                    width: 100px;
+                    height: 100px;
+                }
+    </style>
 </head>
 <body>
-    
-    <div ng-app ="MyApp2">
+
+    <div ng-app="MyApp2">
         <div ng-controller="AngularController">
             <div>
                 <div id="productImage">
-                    <img class ="mainproductImage" src ='/images/Tshirt-front.jpg'>
-                     <div items-drag id="uploadImage" style="display: none; position: absolute; top: 150px; left: 150px">
-                         <img src="" resizable on-resize="resize($evt, $ui)" width="150" height="150" id="image"  />
-	                                    <%-- <div ng-show="w">{{w}}:{{h}}px</div>--%>
-                     </div>
+                    <img class="mainproductImage" src='/images/Tshirt-front.jpg'>
+                    <div items-drag id="uploadImage" style="display: none; position: absolute; top: 150px; left: 150px">
+                        <img src="" resizable on-resize="resize($evt, $ui)" width="150" height="150" id="image" />
+                        <%-- <div ng-show="w">{{w}}:{{h}}px</div>--%>
+                    </div>
                     <div ng-repeat="item in Texts" items-drag style="position: absolute; top: 250px; left: 150px">
-                      <div resizable on-resize="resize($evt, $ui)" style="width: auto; height: auto">{{item}} </div>
+                        <div resizable on-resize="resize($evt, $ui)" style="width: auto; height: auto"><font face="{{selectedFont}}">{{item}}</font></div>
+                    </div>
                 </div>
-                </div>
-                <br/>
+                <br />
                 <div id="gallery"></div>
             </div>
             <div>
-           Pick your size:     <select>
+                Pick your size:    
+                <select>
                     <option value="small">Small</option>
                     <option value="medium">Medium</option>
                     <option value="large">Large</option>
                     <option value="xlarge">Xtra Large</option>
                 </select>
-                <br/>
-           Quantity:   
+                <br />
+                Quantity:   
                   <select>
-                       <option value="1">1</option>
-                       <option value="2">2</option>
-                       <option value="3">3</option>
-                </select>
-                <br/>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                  </select>
+                <br />
                 <div class="upload-button">Upload Image</div>
-                <input class="file-upload" type="file" accept="image/*" style="display: none"/>
-                <br/>
-                <br/>
+                <input class="file-upload" type="file" accept="image/*" style="display: none" />
+                <br />
+                <br />
                 <textarea ng-model="Name"></textarea>
                 <button type="button" ng-click="addText()">Add Personalization Text</button>
-                <br/>
-                <br/>
+                <br />
+                Select your font:
+               <select ng-model="fontDropdown"
+                    ng-options="font as font.label for font in fonts"
+                    ng-change="change(fontDropdown)">
+               </select>
+
+                <br />
                 <div id="imagePreviewDiv" style="display: none">
-                    <img src="" id="addedImagePreview" style="height: 50px;width: 50px"/>
+                    <img src="" id="addedImagePreview" style="height: 50px; width: 50px" />
                     <button type="button" onclick="RemoveImage()">Delete</button>
                 </div>
-                <div ng-if="Texts.length > 0" >
+                <div ng-if="Texts.length > 0">
                     Personalizations added on the Product
                     <div ng-repeat="item in Texts">
                         <div>{{item}}</div>
-                        <button type="button" ng-click="remove(item)" >Delete</button>
+                        <button type="button" ng-click="remove(item)">Delete</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
 </body>
 <script type="text/javascript">
     var galleryImages = ["/images/Tshirt-front.jpg", "/images/Tshirt-back.jpg"];
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         for (var i = 0; i < galleryImages.length; i++) {
             var img = "<div class='item'><img src = '" + galleryImages[i] + "' ></div>";
             $("#gallery").append(img);
@@ -104,12 +111,12 @@
         });
 
         $('.item').click(function () {
-           var imgsrc = $(this).children('img').attr('src');
+            var imgsrc = $(this).children('img').attr('src');
             //$("#productImage").html("<img height='500' width='500' src = '" + imgsrc + "'>");
             $(".mainproductImage").attr("src", imgsrc);
 
         });
-       
+
         //start image upload
         var readURL = function (input) {
             if (input.files && input.files[0]) {
@@ -155,6 +162,46 @@
         //    //Add code here to save the size of the div
         //};
 
+        $scope.fonts = [
+             {
+                 value: '-1',
+                 label: '--Select font--'
+             },
+           {
+               value: 'Arial',
+               label: 'Arial'
+           },
+           {
+               value: 'Tahoma',
+               label: 'Tahoma'
+           },
+            {
+                value: 'Verdana',
+                label: 'Verdana'
+            },
+            {
+                value: 'Webdings',
+                label: 'Webdings'
+            },
+            {
+                value: 'Georgia',
+                label: 'Georgia'
+            },
+            {
+                value: 'Impact',
+                label: 'Impact'
+            },
+            {
+                value: 'Marlett',
+                label: 'Marlett'
+            }
+        ];
+        $scope.selectedFont = '';
+        $scope.change = function (option) {
+            $scope.selectedFont = option.value;
+        }
+
+
         $scope.resize = function (evt, ui) {
             //console.log (evt,ui);
             $scope.w = ui.size.width;
@@ -165,7 +212,7 @@
             $scope.Texts.push($scope.Name);
         }
 
-        $scope.remove = function(item) {
+        $scope.remove = function (item) {
             var index = $scope.Texts.indexOf(item);
             $scope.Texts.splice(index, 1);
         }
@@ -246,14 +293,14 @@
             }
         };
     });
-</script>  
+</script>
 
- <style>
-     div[resizable] {
+<style>
+    div[resizable] {
         border: 1px solid Black;
         width: 50%;
     }
-    
+
 
     .center {
         position: absolute;
@@ -281,7 +328,7 @@
         cursor: pointer;
     }
 
-      .upload-button {
+    .upload-button {
         padding: 4px;
         border: 1px solid black;
         border-radius: 5px;
@@ -298,6 +345,6 @@
     .file-upload {
         display: none;
     }
- </style>  
+</style>
 
 
