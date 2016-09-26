@@ -86,7 +86,7 @@
                 <div ng-if="Texts.length > 0">
                     Personalizations added on the Product
                     <div ng-repeat="item in Texts">
-                        <div>{{item}}</div>
+                        <div><font face="{{selectedFont}}">{{item}}</font></div>
                         <button type="button" ng-click="remove(item)">Delete</button>
                     </div>
                 </div>
