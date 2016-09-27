@@ -17,38 +17,44 @@
     <link href="CCS/Gallery/owl.transitions.css" rel="stylesheet" />
     <style type="text/css">
         #gallery {
-            width: 500px;
+            width: auto;
+            height: auto;
+
         }
 
             #gallery .item {
-                margin: 3px;
+                width: auto;
             }
 
                 #gallery .item img {
                     display: block;
-                    width: 100px;
-                    height: 100px;
+                    width: 150px;
+                    height: 150px;
+                   
                 }
     </style>
 </head>
 <body>
 
     <div ng-app="MyApp2">
-        <div ng-controller="AngularController">
+        <div ng-controller="AngularController"> 
             <div class="angular-main-container">
+                <div class ="angular-wrapper1">
                 <div id="productImage">
                     <img class="mainproductImage" src='/images/Tshirt-front.jpg'>
-                    <div items-drag id="uploadImage" style="display: none; position: absolute; top: 150px; left: 150px">
+                    <div items-drag id="uploadImage" style="display: none; position: absolute; top: 150px; left: 635px">
                         <img src="" resizable on-resize="resize($evt, $ui)" width="150" height="150" id="image" />
                         <%-- <div ng-show="w">{{w}}:{{h}}px</div>--%>
-                    </div>
-                    <div ng-repeat="item in Texts" items-drag style="position: absolute; top: 250px; left: 150px">
+                    </div><br/> 
+                    <div ng-repeat="item in Texts" items-drag style="position: absolute; top: 320px; left: 670px">
                         <div resizable on-resize="resize($evt, $ui)" style="width: auto; height: auto"><font face="{{selectedFont}}">{{item.name}}</font></div>
                     </div>
                 </div>
-                <br />
-                <div>
-
+                     <div class ="angular-wrapper3"><div id="gallery"  class ="angular-gallery"> </div></div>
+                </div>   
+              
+                     
+                     <div class ="angular-wrapper2">
                     <div class="agular-heading">Pick your size:</div>
                     <select>
                         <option value="small">Small</option>
@@ -79,7 +85,7 @@
                     <br />
                     <div id="imagePreviewDiv" style="display: none">
                         <img src="" id="addedImagePreview" style="height: 50px; width: 50px" />
-                        <button type="button" onclick="RemoveImage()">Delete</button>
+                        <button type="button" class="angular-delete-image" onclick="RemoveImage()">Delete</button>
                     </div>
                     <div ng-if="Texts.length > 0">
                         <div class="agular-heading">Personalizations added on the Product</div>
@@ -92,13 +98,12 @@
                             <button type="button" class="angular-delete-button" id="{{item.id}}save" style="display: none" ng-click="addChangedText(item)">Save</button>
                             <button type="button" class="angular-delete-button" ng-click="remove(item)">Delete</button>
                         </div>
-                    </div>
-                    <br />
-                </div>
-                <div id="gallery" class="angular-gallery"></div>
-            </div>
-        </div>
-    </div>
+                   
+              </div>
+                </div> 
+                
+               </div>
+         </div> 
 </body>
 <script type="text/javascript">
     var galleryImages = ["/images/Tshirt-front.jpg", "/images/Tshirt-back.jpg"];
@@ -351,14 +356,28 @@
         margin-top: -25px;
     }
 
-    .angular-wrapper {
+    .angular-wrapper1 {
+        float: left;
+        margin-left: 0px;
+        margin-right: 50px;
+        width: 430px;
+        height: 100%;
+    }
+        .angular-wrapper2 {
         float: left;
         margin-left: 50px;
         margin-right: 0px;
-        max-width: 300px;
+        width: 430px;
         height: 100%;
     }
 
+       .angular-wrapper3 {
+        float: left;
+        margin-left: 0px;
+        margin-right: 50px;
+        width: 100%;
+        height: auto;
+    }
     .angular-main-container {
 	 display : block;
 	 padding-top: 10px;
@@ -367,8 +386,10 @@
      
 }
      .angular-gallery {
-     width: 500px;
-     backgorund-color: #ff00;
+     display : block;
+	 padding-top: 10px;
+     margin: auto;
+     max-width: 900px;
      }
 
     input, select, textarea {
@@ -399,8 +420,8 @@
     display: inline-block;
     font-size: 16px;
     margin-bottom: 4px;
-    width: 300px;
-    -webkit-border-radius: 3px;
+    width: 430px;
+   -webkit-border-radius: 3px;
     border-radius: 3px;
     -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
 }
@@ -432,7 +453,7 @@
         display: inline-block;
         font-size: 16px;
         margin-bottom: 4px;
-        width: 300px;
+        width: 430px;
         -webkit-border-radius: 3px;
         border-radius: 3px;
         -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
@@ -446,11 +467,11 @@
         text-decoration: none;
         display: inline;
         font-size: 16px;
-        margin-top: -25px;
-        width: 100px;
+        margin: 0px 0px 0px 5px;
+        width: 75px;
         -webkit-border-radius: 3px;
         border-radius: 3px;
-        -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+       -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
         float: right;
 }
       .angular-delete-image{
@@ -462,8 +483,8 @@
         text-decoration: none;
         display: inline;
         font-size: 16px;
-        margin-top: 5px;
-        width: 100px;
+        margin: 5px 0px 0px 5px;
+        width: 75px;
         -webkit-border-radius: 3px;
         border-radius: 3px;
         -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
@@ -486,8 +507,8 @@
     .angular-repeat-text {
     font-size:14px;
     height:35px;
-    width:300px;
-    max-width:300px;
+    width:430px;
+    max-width:430px;
     word-wrap:break-word;
     padding-top: 10px;
     margin-right: 215px;
