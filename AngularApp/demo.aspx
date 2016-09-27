@@ -1,4 +1,4 @@
-﻿﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ItemPage.aspx.cs" Inherits="AngularApp.ItemPage" %>
+?<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ItemPage.aspx.cs" Inherits="AngularApp.ItemPage" %>
 
 <!DOCTYPE html>
 
@@ -35,7 +35,7 @@
 
     <div ng-app="MyApp2">
         <div ng-controller="AngularController">
-            <div class="angular-main-container">
+            <div>
                 <div id="productImage">
                     <img class="mainproductImage" src='/images/Tshirt-front.jpg'>
                     <div items-drag id="uploadImage" style="display: none; position: absolute; top: 150px; left: 150px">
@@ -47,58 +47,59 @@
                     </div>
                 </div>
                 <br />
-                <div>
-
-                    <div class="agular-heading">Pick your size:</div>
-                    <select>
-                        <option value="small">Small</option>
-                        <option value="medium">Medium</option>
-                        <option value="large">Large</option>
-                        <option value="xlarge">Xtra Large</option>
-                    </select>
-                    <br />
-                    <div class="agular-heading">Quantity: </div>
-                    <select>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
-                    <br />
-                    <div class="angular-upload-button">Upload Image</div>
-                    <input class="file-upload" type="file" accept="image/*" style="display: none" />
-
-                    <textarea ng-model="Name"></textarea>
-                    <button type="button" class="angular-personalization-button " ng-click="addText()">Add Personalization Text</button>
-                    <br />
+                <div id="gallery"></div>
+            </div>
+            <div>
+                Pick your size:    
+                <select>
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                    <option value="xlarge">Xtra Large</option>
+                </select>
+                <br />
+                Quantity:   
+                  <select>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                  </select>
+                <br />
+                <div class="upload-button">Upload Image</div>
+                <input class="file-upload" type="file" accept="image/*" style="display: none" />
+                <br />
+                <br />
+                <textarea ng-model="Name"></textarea>
+                <button type="button" ng-click="addText()">Add Personalization Text</button>
+                <br />
+                Select your font:
                <select ng-model="fontDropdown"
-                   ng-options="font as font.label for font in fonts"
-                   ng-change="change(fontDropdown)">
+                    ng-options="font as font.label for font in fonts"
+                    ng-change="change(fontDropdown)">
                    <option value="">select font</option>
                </select>
 
-                    <br />
-                    <div id="imagePreviewDiv" style="display: none">
-                        <img src="" id="addedImagePreview" style="height: 50px; width: 50px" />
-                        <button type="button" onclick="RemoveImage()">Delete</button>
-                    </div>
-                    <div ng-if="Texts.length > 0">
-                        <div class="agular-heading">Personalizations added on the Product</div>
-                        <div class="angular-repeat-text" ng-repeat="item in Texts">
-                            <div>
-                                <font face="{{selectedFont}}"><span id="{{item.id}}span">{{item.name}}</span></font>
-                                <input type="text" id="{{item.id}}textarea" style="display: none"></input>
-                            </div>
-                            <button type="button" class="angular-delete-button" id="{{item.id}}edit" ng-click="edit(item)">Edit</button>
-                            <button type="button" class="angular-delete-button" id="{{item.id}}save" style="display: none" ng-click="addChangedText(item)">Save</button>
-                            <button type="button" class="angular-delete-button" ng-click="remove(item)">Delete</button>
-                        </div>
-                    </div>
-                    <br />
+                <br />
+                <div id="imagePreviewDiv" style="display: none">
+                    <img src="" id="addedImagePreview" style="height: 50px; width: 50px" />
+                    <button type="button" onclick="RemoveImage()">Delete</button>
                 </div>
-                <div id="gallery" class="angular-gallery"></div>
+                <div ng-if="Texts.length > 0">
+                    Personalizations added on the Product
+                    <div ng-repeat="item in Texts">
+                        <div>
+                            <font face="{{selectedFont}}"><span id="{{item.id}}span">{{item.name}}</span></font>
+                            <input type="text" id="{{item.id}}textarea" style="display: none"></input>
+                        </div>
+                        <button type="button" id="{{item.id}}edit"  ng-click="edit(item)">Edit</button>
+                        <button type="button" id="{{item.id}}save" style="display: none" ng-click="addChangedText(item)">Save</button>
+                        <button type="button" ng-click="remove(item)">Delete</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
 </body>
 <script type="text/javascript">
     var galleryImages = ["/images/Tshirt-front.jpg", "/images/Tshirt-back.jpg"];
@@ -141,7 +142,7 @@
             readURL(this);
         });
 
-        $(".angular-upload-button").on('click', function () {
+        $(".upload-button").on('click', function () {
             $(".file-upload").click();
         });
         //End image upload
@@ -211,7 +212,7 @@
 
         $scope.addText = function () {
             var counter = $scope.Texts.length + 1;
-            $scope.Texts.push({ id: counter, name: $scope.Name });
+            $scope.Texts.push({id : counter, name : $scope.Name });
             //$scope.Texts.push($scope.id,$scope.Name);
         }
 
@@ -220,7 +221,7 @@
             $scope.Texts.splice(index, 1);
         }
 
-        $scope.edit = function (item) {
+        $scope.edit = function(item) {
             var inputId = "#" + item.id + "textarea";
             $(inputId).css("display", "block");
             $(inputId).val(item.name);
@@ -351,67 +352,12 @@
         margin-top: -25px;
     }
 
-    .angular-wrapper {
-        float: left;
-        margin-left: 50px;
-        margin-right: 0px;
-        max-width: 300px;
-        height: 100%;
-    }
-
-    .angular-main-container {
-	 display : block;
-	 padding-top: 10px;
-     margin: auto;
-     max-width: 1000px;
-     
-}
-     .angular-gallery {
-     width: 500px;
-     backgorund-color: #ff00;
-     }
-
-    input, select, textarea {
-    background-color: #fff;
-    border-color: #e0e0e0;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
-    border-width: 1px;
-    border-style: solid;
-    color: #474e57;
-    font-size: 16px;
-    font-weight: 400;
-    padding: 10px;
-    margin-top: 4px; 
-    margin-bottom: 6px; 
-    width: 100%;
-}
-
-    .angular-personalization-button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-bottom: 4px;
-    width: 300px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
-}
-
     .mainproductImage {
         height: 500px;
         width: 500px;
-        float: left; 
     }
 
-    ​ .draggable {
+    ? .draggable {
         position: relative;
         display: -moz-inline-stack;
         display: inline-block;
@@ -422,53 +368,14 @@
         cursor: pointer;
     }
 
-      .angular-upload-button {
-        background-color: #0099cc; /* Blue */
-        border: none;
-        color: white;
-        padding: 15px 5px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin-bottom: 4px;
-        width: 300px;
-        -webkit-border-radius: 3px;
-        border-radius: 3px;
-        -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
-}
-      .angular-delete-button{
-        background-color: #f00; /* Red */
-        border: none;
-        color: white;
-        padding: 5px 0px;
-        text-align: center;
-        text-decoration: none;
-        display: inline;
-        font-size: 16px;
-        margin-top: -25px;
-        width: 100px;
-        -webkit-border-radius: 3px;
-        border-radius: 3px;
-        -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
-        float: right;
-}
-      .angular-delete-image{
-        background-color: #f00; /* Red */
-        border: none;
-        color: white;
-        padding: 5px 0px;
-        text-align: center;
-        text-decoration: none;
-        display: inline;
-        font-size: 16px;
-        margin-top: 5px;
-        width: 100px;
-        -webkit-border-radius: 3px;
-        border-radius: 3px;
-        -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
-        float: right;
-}
+    .upload-button {
+        padding: 4px;
+        border: 1px solid black;
+        border-radius: 5px;
+        display: block;
+        float: left;
+    }
+
     .profile-pic {
         max-width: 200px;
         max-height: 200px;
@@ -478,21 +385,6 @@
     .file-upload {
         display: none;
     }
-     .agular-heading {
-       font-weight: 700;
-       font-size: 14px;
-       color: #474e57;}
-
-    .angular-repeat-text {
-    font-size:14px;
-    height:35px;
-    width:300px;
-    max-width:300px;
-    word-wrap:break-word;
-    padding-top: 10px;
-    margin-right: 215px;
-     }
-  
- </style>  
+</style>
 
 
