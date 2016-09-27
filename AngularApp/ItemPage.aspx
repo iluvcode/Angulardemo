@@ -76,6 +76,7 @@
                <select ng-model="fontDropdown"
                     ng-options="font as font.label for font in fonts"
                     ng-change="change(fontDropdown)">
+                   <option value="">select font</option>
                </select>
 
                 <br />
@@ -90,7 +91,7 @@
                             <font face="{{selectedFont}}"><span id="{{item.id}}span">{{item.name}}</span></font>
                             <input type="text" id="{{item.id}}textarea" style="display: none"></input>
                         </div>
-                        <button type="button" ng-click="edit(item)">Edit</button>
+                        <button type="button" id="{{item.id}}edit"  ng-click="edit(item)">Edit</button>
                         <button type="button" id="{{item.id}}save" style="display: none" ng-click="addChangedText(item)">Save</button>
                         <button type="button" ng-click="remove(item)">Delete</button>
                     </div>
@@ -169,10 +170,6 @@
 
         $scope.fonts = [
                {
-                 value: '-1',
-                 label: '--Select font--'
-               },
-               {
                    value: 'Arial',
                    label: 'Arial'
                },
@@ -235,6 +232,9 @@
             var savebuttonId = "#" + item.id + "save";
             $(savebuttonId).css("display", "block");
 
+            var editbuttonId = "#" + item.id + "edit";
+            $(editbuttonId).hide();
+
         }
 
         $scope.addChangedText = function (item) {
@@ -252,6 +252,8 @@
             var savebuttonId = "#" + item.id + "save";
             $(savebuttonId).css("display", "none");
 
+            var editbuttonId = "#" + item.id + "edit";
+            $(editbuttonId).show();
         }
 
         $scope.data = {
