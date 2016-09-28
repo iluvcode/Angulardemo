@@ -17,13 +17,13 @@
     <link href="CCS/Gallery/owl.transitions.css" rel="stylesheet" />
     <style type="text/css">
         #gallery {
-            width: auto;
+            width: 700px;
             height: auto;
 
         }
 
             #gallery .item {
-                width: auto;
+                width: 400px;
             }
 
                 #gallery .item img {
