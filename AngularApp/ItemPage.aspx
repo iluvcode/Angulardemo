@@ -47,7 +47,7 @@
                         </div>
                         <br />
                         <div ng-repeat="item in Texts" items-drag style="position: absolute; top: 320px; left: 670px">
-                            <div resizable on-resize="resize($evt, $ui)" style="width: auto; height: auto"><font face="{{selectedFont}}">{{item.name}}</font></div>
+                            <div resizable on-resize="resize($evt, $ui)" style="width: auto; height: auto"><font ng-style="selectedColor" face="{{selectedFont}}">{{item.name}}</font></div>
                         </div>
                     </div>
                     <div class="angular-wrapper3">
@@ -76,9 +76,9 @@
                         <option value="3">3</option>
                     </select>
                     <br />
-                    <button type="button">Add to Cart</button>
+                    <button type="button" class ="angular-add-to-cart">Add to Cart</button>
                     
-                    <div>Customize It!</div>
+                    <div class="agular-heading">Customize It!</div>
 
                     <div class="angular-upload-button">Upload Image</div>
                     <input class="file-upload" type="file" accept="image/*" style="display: none" />
@@ -86,31 +86,39 @@
 
                     <textarea ng-model="Name"></textarea>
                     <button type="button" class="angular-personalization-button " ng-click="addText()">Add Personalization Text</button>
-                    <div>$1 per character</div>
+                    <div class="agular-heading">$1 per character</div>
                     <br />
                     <select ng-model="fontDropdown"
                         ng-options="font as font.label for font in fonts"
                         ng-change="change(fontDropdown)">
-                        <option value="">select font</option>
+                        <option value="">Select font</option>
                     </select>
+                    <select ng-model="colorDropdown"
+                        ng-options="color as color.label for color in colors"
+                        ng-change="changeColor(colorDropdown)">
+                        <option value="">Select color</option>
+                    </select>
+                    
 
                     <br />
+                
                     <div id="imagePreviewDiv" style="display: none">
                         <img src="" id="addedImagePreview" style="height: 50px; width: 50px" />
                         <button type="button" class="angular-delete-image" onclick="RemoveImage()">Delete</button>
                     </div>
                     <div ng-if="Texts.length > 0">
-                        <div class="agular-heading">Personalizations added on the Product</div>
+                        <div class="agular-heading">Personalizations added on the Product</div>    
+                        
                         <div class="angular-repeat-text" ng-repeat="item in Texts">
-                            <div>
-                                <font face="{{selectedFont}}"><span id="{{item.id}}span">{{item.name}}</span></font>
-                                <input type="text" id="{{item.id}}textarea" style="display: none"></input>
-                            </div>
-                            <button type="button" class="angular-delete-button" id="{{item.id}}edit" ng-click="edit(item)">Edit</button>
-                            <button type="button" class="angular-delete-button" id="{{item.id}}save" style="display: none" ng-click="addChangedText(item)">Save</button>
+                            <div class ="angular-edit-text">
+                                <font ng-style="selectedColor" face="{{selectedFont}}"><span id="{{item.id}}span">{{item.name}}</span></font>
+                                <input type="text" id="{{item.id}}textarea" style="display: none" class="angular-personalize-text"></input>
+                            
+                            <button type="button" class="angular-edit-button " id="{{item.id}}edit" ng-click="edit(item)">Edit</button>
+                            <button type="button" class="angular-save-button" id="{{item.id}}save" style="display: none" ng-click="addChangedText(item)">Save</button>
                             <button type="button" class="angular-delete-button" ng-click="remove(item)">Delete</button>
                         </div>
-
+</div>
                     </div>
                 </div>
 
@@ -216,11 +224,40 @@
                     label: 'Marlett'
                 }
         ];
+
+        $scope.colors = [
+              {
+                  value: 'Red',
+                  label: 'Red'
+              },
+              {
+                  value: 'black',
+                  label: 'Black'
+              },
+               {
+                   value: 'green',
+                   label: 'Green'
+               },
+               {
+                   value: 'blue',
+                   label: 'Blue'
+               },
+               {
+                   value: 'yellow',
+                   label: 'Yellow'
+               }
+        ];
+
         $scope.selectedFont = '';
         $scope.change = function (option) {
             $scope.selectedFont = option.value;
         }
 
+        $scope.changeColor = function(option) {
+            $scope.selectedColor = {
+                "color": option.value
+         }
+        }
 
         $scope.resize = function (evt, ui) {
             //console.log (evt,ui);
@@ -421,13 +458,13 @@
     font-size: 16px;
     font-weight: 400;
     padding: 10px;
-    margin-top: 4px; 
+    margin-top: 6px; 
     margin-bottom: 6px; 
     width: 100%;
 }
 
     .angular-personalization-button {
-    background-color: #4CAF50; /* Green */
+    background-color: #ff6600; /* Orange */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -441,7 +478,21 @@
     border-radius: 3px;
     -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
 }
-
+    .angular-add-to-cart{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 4px;
+    width: 430px;
+   -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+}
     .mainproductImage {
         height: 500px;
         width: 500px;
@@ -469,12 +520,47 @@
         display: inline-block;
         font-size: 16px;
         margin-bottom: 4px;
+        margin-top: 4px; 
         width: 430px;
         -webkit-border-radius: 3px;
         border-radius: 3px;
         -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
 }
       .angular-delete-button{
+        background-color: #f00; /* Red */
+        border: none;
+        color: white;
+        padding: 5px 0px;
+        text-align: center;
+        text-decoration: none;
+        display: inline;
+        font-size: 16px;
+        margin: 0px 0px 0px 5px;
+        width: 75px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+       -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+        float: right;
+}
+
+      .angular-save-button{
+        background-color: #f00; /* Red */
+        border: none;
+        color: white;
+        padding: 5px 0px;
+        text-align: center;
+        text-decoration: none;
+        display: inline;
+        font-size: 16px;
+        margin: 0px 0px 0px 5px;
+        width: 75px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+       -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+        float: right;
+}
+
+      .angular-edit-button{
         background-color: #f00; /* Red */
         border: none;
         color: white;
@@ -520,16 +606,38 @@
        font-size: 14px;
        color: #474e57;}
 
+     .angular-description {
+       font-weight: 700;
+       font-size: 22px;
+       color: #0099cc; /* Blue*/}
+
+     .angular-itemprice{
+       font-weight: 700;
+       font-size: 18px;
+       color: #4CAF50; /*Green*/}
+
     .angular-repeat-text {
     font-size:14px;
-    height:35px;
+    height: auto;
     width:430px;
-    max-width:430px;
     word-wrap:break-word;
     padding-top: 10px;
-    margin-right: 215px;
+    margin-top: 12px;
+   
      }
-  
- </style>  
+    .angular-personalize-text {
+    padding: 10px;
+    margin: 10px 0px 10px 0px;
+    width: 430px;
+    }
 
 
+    .angular-edit-text{ 
+    position: relative;
+    width: 430px;
+    height: auto;
+    padding-bottom: 5px;
+    margin: 10px 0px 10px 0px;
+    }
+
+</style>
