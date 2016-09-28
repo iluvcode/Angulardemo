@@ -37,24 +37,30 @@
 <body>
 
     <div ng-app="MyApp2">
-        <div ng-controller="AngularController"> 
+        <div ng-controller="AngularController">
             <div class="angular-main-container">
-                <div class ="angular-wrapper1">
-                <div id="productImage">
-                    <img class="mainproductImage" src='/images/Tshirt-front.jpg'>
-                    <div items-drag id="uploadImage" style="display: none; position: absolute; top: 150px; left: 635px">
-                        <img src="" resizable on-resize="resize($evt, $ui)" width="150" height="150" id="image" />
-                        <%-- <div ng-show="w">{{w}}:{{h}}px</div>--%>
-                    </div><br/> 
-                    <div ng-repeat="item in Texts" items-drag style="position: absolute; top: 320px; left: 670px">
-                        <div resizable on-resize="resize($evt, $ui)" style="width: auto; height: auto"><font face="{{selectedFont}}">{{item.name}}</font></div>
+                <div class="angular-wrapper1">
+                    <div id="productImage">
+                        <img class="mainproductImage" src='/images/Tshirt-front.jpg'>
+                        <div items-drag id="uploadImage" style="display: none; position: absolute; top: 150px; left: 635px">
+                            <img src="" resizable on-resize="resize($evt, $ui)" width="150" height="150" id="image" />
+                        </div>
+                        <br />
+                        <div ng-repeat="item in Texts" items-drag style="position: absolute; top: 320px; left: 670px">
+                            <div resizable on-resize="resize($evt, $ui)" style="width: auto; height: auto"><font face="{{selectedFont}}">{{item.name}}</font></div>
+                        </div>
                     </div>
+                    <div class="angular-wrapper3">
+                        <div id="gallery" class="angular-gallery"></div>
+                    </div>
+                     <%-- <div ng-show="w">{{w}}:{{h}}px</div>--%>
                 </div>
-                     <div class ="angular-wrapper3"><div id="gallery"  class ="angular-gallery"> </div></div>
-                </div>   
-              
-                     
-                     <div class ="angular-wrapper2">
+
+
+                <div class="angular-wrapper2">
+                    <div class="angular-description">Men's Basic T-Shirt</div>
+                    <div class="angular-itemprice">${{ItemPrice}} per shirt</div>
+
                     <div class="agular-heading">Pick your size:</div>
                     <select>
                         <option value="small">Small</option>
@@ -70,17 +76,23 @@
                         <option value="3">3</option>
                     </select>
                     <br />
+                    <button type="button">Add to Cart</button>
+                    
+                    <div>Customize It!</div>
+
                     <div class="angular-upload-button">Upload Image</div>
                     <input class="file-upload" type="file" accept="image/*" style="display: none" />
 
+
                     <textarea ng-model="Name"></textarea>
                     <button type="button" class="angular-personalization-button " ng-click="addText()">Add Personalization Text</button>
+                    <div>$1 per character</div>
                     <br />
-               <select ng-model="fontDropdown"
-                   ng-options="font as font.label for font in fonts"
-                   ng-change="change(fontDropdown)">
-                   <option value="">select font</option>
-               </select>
+                    <select ng-model="fontDropdown"
+                        ng-options="font as font.label for font in fonts"
+                        ng-change="change(fontDropdown)">
+                        <option value="">select font</option>
+                    </select>
 
                     <br />
                     <div id="imagePreviewDiv" style="display: none">
@@ -98,12 +110,13 @@
                             <button type="button" class="angular-delete-button" id="{{item.id}}save" style="display: none" ng-click="addChangedText(item)">Save</button>
                             <button type="button" class="angular-delete-button" ng-click="remove(item)">Delete</button>
                         </div>
-                   
-              </div>
-                </div> 
-                
-               </div>
-         </div> 
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </body>
 <script type="text/javascript">
     var galleryImages = ["/images/Tshirt-front.jpg", "/images/Tshirt-back.jpg"];
@@ -163,6 +176,7 @@
         $scope.Name = "Add Text here";
         $scope.Count = 0;
         $scope.Texts = [];
+        $scope.ItemPrice = 14;
         //This is for the API call
         //$http.get('http://localhost/RegVendor/Api/RegVendor/GetNominations?keyword=1').success(function (data) {
         //    $scope.Vendors = data;
@@ -217,12 +231,14 @@
         $scope.addText = function () {
             var counter = $scope.Texts.length + 1;
             $scope.Texts.push({ id: counter, name: $scope.Name });
+            $scope.ItemPrice = $scope.ItemPrice + $scope.Name.length;
             //$scope.Texts.push($scope.id,$scope.Name);
         }
 
         $scope.remove = function (item) {
             var index = $scope.Texts.indexOf(item);
             $scope.Texts.splice(index, 1);
+            $scope.ItemPrice = $scope.ItemPrice - item.name.length;
         }
 
         $scope.edit = function (item) {
