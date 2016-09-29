@@ -432,15 +432,15 @@
         height: auto;
     }
     .angular-main-container {
-	 display : block;
-	 padding-top: 10px;
+       display : block;
+       padding-top: 10px;
      margin: auto;
      max-width: 1000px;
      
 }
      .angular-gallery {
      display : block;
-	 padding-top: 10px;
+       padding-top: 10px;
      margin: auto;
      max-width: 900px;
      }
@@ -478,28 +478,38 @@
     border-radius: 3px;
     -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
 }
-    .angular-add-to-cart{
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-bottom: 4px;
-    width: 430px;
-   -webkit-border-radius: 3px;
-    border-radius: 3px;
-    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
-}
+    .angular-personalization-button:hover {
+        background-color :#ff3300;
+        letter-spacing: 1px;
+        }
+
+    .angular-add-to-cart {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 12px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-bottom: 4px;
+        width: 430px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+        .angular-add-to-cart:hover {
+        background-color :#329b00;
+        letter-spacing: 1px;
+        }
+
     .mainproductImage {
         height: 500px;
         width: 500px;
         float: left; 
     }
 
-    ​ .draggable {
+     .draggable {
         position: relative;
         display: -moz-inline-stack;
         display: inline-block;
@@ -525,7 +535,13 @@
         -webkit-border-radius: 3px;
         border-radius: 3px;
         -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+        cursor: pointer;
 }
+      .angular-upload-button:hover {
+        background-color :#0066cc;
+        letter-spacing: 1px;
+        
+        }
       .angular-delete-button{
         background-color: #f00; /* Red */
         border: none;
@@ -542,7 +558,11 @@
        -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
         float: right;
 }
-
+      .angular-delete-button:hover {
+        background-color :#990000;
+        letter-spacing: 1px;
+        
+        }
       .angular-save-button{
         background-color: #f00; /* Red */
         border: none;
@@ -560,6 +580,12 @@
         float: right;
 }
 
+        .angular-save-button:hover {
+        background-color :#990000;
+        letter-spacing: 1px;
+        }
+
+
       .angular-edit-button{
         background-color: #f00; /* Red */
         border: none;
@@ -576,6 +602,12 @@
        -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
         float: right;
 }
+
+      .angular-edit-button:hover {
+        background-color :#990000;
+        letter-spacing: 1px;
+        }
+
       .angular-delete-image{
         background-color: #f00; /* Red */
         border: none;
@@ -592,6 +624,12 @@
         -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
         float: right;
 }
+
+      .angular-delete-image:hover {
+        background-color :#990000;
+        letter-spacing: 1px;
+        }
+
     .profile-pic {
         max-width: 200px;
         max-height: 200px;
@@ -640,4 +678,4 @@
     margin: 10px 0px 10px 0px;
     }
 
-</style>
+    </style>
